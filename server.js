@@ -116,7 +116,7 @@ app.post("/envoyer-demande", async (req, res) => {
                     : ""
             }${
                 designCartesCarton
-                    ? `Design cartes carton: ${designCarton}\n`
+                    ? `Design cartes carton: ${designCartesCarton}\n` 
                     : ""
             }${
                 rectoVersoCarton
