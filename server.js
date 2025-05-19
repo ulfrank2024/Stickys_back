@@ -3,9 +3,28 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
 require("dotenv").config(); // Pour charger les variables d'environnement depuis .env
+const cors = require("cors"); // Importez le middleware cors
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+// Configuration CORS
+const allowedOrigins = [
+    "https://ulfrank2024.github.io", // L'origine de votre GitHub Pages
+    "http://localhost:5500", // Votre environnement de développement local (si vous l'utilisez)
+];
+
+const corsOptions = {
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+            callback(null, true);
+        } else {
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
+};
+
+app.use(cors(corsOptions)); // Utilisez le middleware CORS avec les options
 
 // Middleware pour parser le corps des requêtes POST
 app.use(bodyParser.urlencoded({ extended: false }));
