@@ -1,0 +1,5 @@
+node_modules
+.env
+.DS_Store         # Fichiers de métadonnées macOS
+npm-debug.log* # Fichiers de log de npm
+yarn-error.log* # Fichiers de log de Yarn
